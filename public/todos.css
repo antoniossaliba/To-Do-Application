@@ -1,0 +1,192 @@
+* {
+    background-color: #23262C;
+}
+
+.frame7185 {
+    width: 1280px;
+    height: 812px;
+    padding-left: 340px;
+    padding-top: 90px;
+}
+
+.frame7185 .frame7183 {
+    width: 1120px;
+    height: 460px;
+}
+
+.frame7185 .frame7183 #v01 {
+    width: 1120px;
+    height: 80px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.frame7185 .frame7183 #v01 #title_caption_avatar #title {
+    font-family: 'Montserrat';
+    width: 260px;
+    height: 36px;
+    color: #F4F6FA;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0%;
+}
+
+.frame7185 .frame7183 #v01 #title_caption_avatar #caption {
+    font-family: 'Montserrat';
+    width: 260px;
+    height: 18px;
+    color: #F4F6FA;
+    opacity: 50%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0%;
+}
+
+hr {
+    width: 1120px;
+    opacity: 10%;
+    color: #F4F6FA;
+}
+
+.frame7185 .frame7183 #frame7184 {
+    width: 1120px;
+    height: 1080px;
+    padding-top: 20px;
+}
+
+.frame7185 .frame7183 #frame7184 #frame6679 {
+    width: 1080px;
+    height: 1080px;
+}
+
+.frame7185 .notes {
+    width: 1120px;
+    height: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.frame7185 .notes #first_form #new_note {
+    width: 895px;
+    height: 24px;
+}
+
+.frame7185 .notes #first_form #submit {
+    width: 113px;
+    height: 24px;
+}
+
+.frame7185 .notes #first_form #new_note input {
+    background-color: #2E3239;
+    color: white;
+    opacity: 90%;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    width: 1120px;
+    height: 80px;
+    border-radius: 9px;
+    border-width: 0px;
+}
+
+.frame7185 .notes #first_form #submit input {
+    width: 161px;
+    height: 48px;
+    border-radius: 9px;
+    border-width: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #F4F6FA;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0px;
+    margin-top: 80px;
+}
+
+.frame7185 .notes #first_form #submit input:hover {
+    background-color: #2E3239;
+    color: #F4F6FA;
+    cursor: pointer;
+}
+
+.frame7185 .lo {
+    width: 1120px;
+    height: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.frame7185 .lo #second_form #logout {
+    width: 113px;
+    height: 24px;
+}
+
+.frame7185 .lo #second_form #logout input {
+    width: 161px;
+    height: 48px;
+    border-radius: 9px;
+    border-width: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #F4F6FA;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0px;
+    margin-top: 60px;
+}
+
+.frame7185 .lo #second_form #logout input:hover {
+    background-color: #2E3239;
+    color: #F4F6FA;
+    cursor: pointer;
+}
+
+.frame7185 .frame7183 #frame7184 #frame6679 #to_do_list #current_item {
+    list-style-type: none;
+}
+
+.frame7185 .frame7183 #frame7184 #frame6679 #to_do_list #current_item #completed {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-decoration: line-through;
+    color: #F4F6FA;
+}
+
+.frame7185 .frame7183 #frame7184 #frame6679 #to_do_list #current_item #not_completed {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: #F4F6FA;
+}
+
+.frame7185 .frame7183 #frame7184 #frame6679 #to_do_list #current_item .fa.fa-solid.fa-check:hover {
+    color: green;
+    cursor: pointer;
+}
+
+.frame7185 .frame7183 #frame7184 #frame6679 #to_do_list #current_item .fa.fa-solid.fa-trash:hover {
+    color: red;
+    cursor: pointer;
+}
