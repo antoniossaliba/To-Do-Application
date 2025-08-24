@@ -9,12 +9,11 @@ import env from "dotenv";
 import session from "express-session";
 env.config();
 const __dirname = dirname(fileURLToPath(import.meta.url));
-// Gets the main directory to access all files from it
-const mainDir = __dirname.substring(0, 49);
+const mainDirectory = __dirname.substring(0, 78);
 const saltRounds = 12;
 const app = express();
 const PORT = 3000;
-app.use(express.static(`${mainDir}/public`));
+app.use(express.static(`${mainDirectory}/public`));
 app.use(bodyParser.urlencoded({ extended: true }));
 const db = new Client({
     user: process.env.USER_DB,
@@ -54,7 +53,7 @@ app.get("/logout", requireAuth, (req, res) => {
                 res.redirect("/todos");
             }
             else {
-                res.render(`${mainDir}/views/login.ejs`, { logout_message: "Logged out successfully." });
+                res.render(`${mainDirectory}/views/login.ejs`, { logout_message: "Logged out successfully." });
             }
         });
     }
@@ -68,7 +67,7 @@ app.get("/login", (req, res) => {
             res.redirect("/todos");
         }
         else {
-            res.render(`${mainDir}/views/login.ejs`, { msg: "You are not authenticated. Register or log in first." });
+            res.render(`${mainDirectory}/views/login.ejs`, { msg: "You are not authenticated. Register or log in first." });
         }
     }
     catch (error) {
@@ -81,20 +80,20 @@ app.post("/login", async (req, res) => {
         const password = req.body.password;
         const resultOfQuery = await db.query("SELECT * FROM users WHERE email=$1", [email]);
         if (resultOfQuery.rows.length === 0) {
-            res.render(`${mainDir}/views/login.ejs`, { emailMessage: "No email found. Try to register instead." });
+            res.render(`${mainDirectory}/views/login.ejs`, { emailMessage: "No email found. Try to register instead." });
         }
         else {
             if (await comparePasswords(password, resultOfQuery.rows[0].password)) {
                 req.session.regenerate((err) => {
                     if (err) {
-                        res.render(`${mainDir}/views/login.ejs`, { message: "Something went wrong. Please try again." });
+                        res.render(`${mainDirectory}/views/login.ejs`, { message: "Something went wrong. Please try again." });
                     }
                     req.session.user = { id: resultOfQuery.rows[0].id, email: resultOfQuery.rows[0].email };
                     res.redirect("/todos");
                 });
             }
             else {
-                res.render(`${mainDir}/views/login.ejs`, { passwordMessage: "Wrong password. Please try again." });
+                res.render(`${mainDirectory}/views/login.ejs`, { passwordMessage: "Wrong password. Please try again." });
             }
         }
     }
@@ -108,7 +107,7 @@ app.get("/register", (req, res) => {
             res.redirect("/todos");
         }
         else {
-            res.render(`${mainDir}/views/register.ejs`, { msg: "You are not authenticated. Register or log in first." });
+            res.render(`${mainDirectory}/views/register.ejs`, { msg: "You are not authenticated. Register or log in first." });
         }
     }
     catch (error) {
@@ -129,18 +128,18 @@ app.post("/register", async (req, res) => {
                 await db.query("INSERT INTO users VALUES ($1, $2, $3)", [id, email, hashedPassword]);
                 req.session.regenerate((err) => {
                     if (err) {
-                        res.render(`${mainDir}/views/register.ejs`, { message: "Something went wrong. Please try again." });
+                        res.render(`${mainDirectory}/views/register.ejs`, { message: "Something went wrong. Please try again." });
                     }
                     req.session.user = { id: id, email: email };
                     res.redirect("/todos");
                 });
             }
             else {
-                res.render(`${mainDir}/views/register.ejs`, { passwordMessage: "Password and confirmation password must match." });
+                res.render(`${mainDirectory}/views/register.ejs`, { passwordMessage: "Password and confirmation password must match." });
             }
         }
         else {
-            res.render(`${mainDir}/views/register.ejs`, { emailMessage: "Email already exists. Try logging in instead." });
+            res.render(`${mainDirectory}/views/register.ejs`, { emailMessage: "Email already exists. Try logging in instead." });
         }
     }
     catch (error) {
@@ -159,7 +158,7 @@ app.get("/todos", requireAuth, async (req, res) => {
             id_todos.push(todosOfInterest.rows[i].id_todo);
             completed.push(todosOfInterest.rows[i].completed);
         }
-        res.render(`${mainDir}/views/todos.ejs`, { todos: todos, id_todos: id_todos, completed: completed });
+        res.render(`${mainDirectory}/views/todos.ejs`, { todos: todos, id_todos: id_todos, completed: completed });
     }
     catch (error) {
         res.sendStatus(503).json({ message: "Something went wrong. Please try again.", error: error });
@@ -173,7 +172,7 @@ app.post("/todos", requireAuth, async (req, res) => {
         res.redirect("/todos");
     }
     catch (error) {
-        res.sendStatus(404).json({ message: "Something went wrong. Please try again.", error: error });
+        res.sendStatus(503).json({ message: "Something went wrong. Please try again.", error: error });
     }
 });
 app.post("/todos/:id", requireAuth, async (req, res) => {

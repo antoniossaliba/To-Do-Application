@@ -21,7 +21,7 @@ declare module "express-session" {
 env.config();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const mainDirectory = __dirname.substring(0, 49);
+const mainDirectory = __dirname.substring(0, 78);
 const saltRounds = 12;
 const app = express();
 const PORT = 3000;
