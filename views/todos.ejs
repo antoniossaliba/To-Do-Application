@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Today's To Do list - To Do Application</title>
+    <link rel="stylesheet" href="todos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="frame7185">
+      <div class="frame7183">
+        <div id="v01">
+          <div id="title_caption_avatar">
+            <div id="title">TO DO APP</div>
+            <div id="caption">Stop Procrastinating , Start Organizing</div>
+          </div>
+          <br />
+          <hr />
+        </div>
+        <div id="frame7184">
+          <div id="frame6679">
+            <ul id="to_do_list">
+              <% for (let i = 0; i < todos.length; i++) { %>
+              <li id="current_item">
+                <form action="/mark-completed/<%= id_todos[i] %>" method="POST">
+                  <button
+                    type="submit"
+                    style="background: none; border: none; cursor: pointer"
+                  >
+                    <i class="fa fa-solid fa-check"></i>
+                  </button>
+                </form>
+                <% if (completed[i] === true) { %>
+                <div id="completed"><%= todos[i] %></div>
+                <% } else { %>
+                <div id="not_completed"><%= todos[i] %></div>
+                <% } %>
+                <form action="/todos/<%= id_todos[i] %>" method="POST">
+                  <button
+                    type="submit"
+                    style="background: none; border: none; cursor: pointer"
+                  >
+                    <i class="fa fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </li>
+              <br />
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="notes">
+        <form action="/todos" method="POST" id="first_form">
+          <div id="new_note">
+            <input
+              type="text"
+              required
+              placeholder="New Note"
+              name="new_note"
+            />
+          </div>
+          <div id="submit">
+            <input type="submit" value="Add New Note" name="submit" />
+          </div>
+        </form>
+      </div>
+      <div class="lo">
+        <form action="/logout" method="GET" id="second_form">
+          <div id="logout"><input type="submit" value="Log out" /></div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
