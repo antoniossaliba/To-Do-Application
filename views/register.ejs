@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - To Do Appplication</title>
+    <link rel="stylesheet" href="register.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="frame7185">
+      <div class="frame7183">
+        <div id="v01">
+          <div id="title_caption_avatar">
+            <div id="title">TO DO APP</div>
+            <div id="caption">Stop Procrastinating , Start Organizing</div>
+          </div>
+          <br />
+          <hr />
+        </div>
+        <div id="frame7184">
+          <div id="register">Register</div>
+        </div>
+      </div>
+      <div class="notes">
+        <form action="/register" method="POST">
+          <div id="group6692">
+            <div id="group6690">
+              <div id="email">
+                <input type="email" name="email" required placeholder="Email" />
+              </div>
+              <div id="password">
+                <input
+                  type="password"
+                  name="password"
+                  required
+                  placeholder="Password"
+                />
+              </div>
+              <div id="confirm_password">
+                <input
+                  type="password"
+                  name="confirm_password"
+                  required
+                  placeholder="Confirm Password"
+                />
+              </div>
+            </div>
+            <div id="login">
+              Already have an account?
+              <span><a href="/login">Login</a></span>
+            </div>
+            <div id="group6691">
+              <input type="submit" name="submit" value="Register" />
+            </div>
+          </div>
+        </form>
+        <% if (typeof emailMessage !== 'undefined') { %>
+        <br />
+        <div id="email_message"><%= emailMessage %></div>
+        <% } %> <% if (typeof passwordMessage !== 'undefined') { %>
+        <br />
+        <div id="password_message"><%= passwordMessage %></div>
+        <% } %> <% if (typeof message !== 'undefined') { %>
+        <br />
+        <div id="message"><%= message %></div>
+        <% } %> <% if (typeof msg !== 'undefined') { %>
+        <br />
+        <div id="msg"><%= msg %></div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
